@@ -5,8 +5,22 @@ const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const PORT = process.env.PORT || 3000;
+
+const MONGODB_HOST = process.env.MONGODB_HOST || 'localhost';
+const MONGODB_PORT = process.env.MONGODB_PORT || 27017;
+const MONGODB_USER = process.env.MONGODB_USER || '';
+const MONGODB_PASS = process.env.MONGODB_PASS || '';
+const MONGODB_NAME = process.env.MONGODB_NAME || 'stock-market-manager';
+
+const MONGODB_AUTH = MONGODB_USER
+  ? `${MONGODB_USER}:${MONGODB_PASS}@`
+  : '';
+
+const MONGODB_URL = `mongodb://${MONGODB_AUTH}${MONGODB_HOST}:${MONGODB_PORT}/${MONGODB_NAME}`;
+
 // Mongoose Connect
-mongoose.connect('mongodb://localhost/stock-market');
+mongoose.connect(MONGODB_URL);
 const db = mongoose.connection;
 
 app.use(express.static(__dirname+'/client'));
