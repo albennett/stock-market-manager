@@ -19,7 +19,8 @@
     "extends": "eslint:recommended",
     "rules": {
       "no-console": 0,
-      "no-unused-vars": 0
+      "no-unused-vars": 0,
+      "no-undef": 0
     }
   },
   "author": "Amy Lee Bennett <amyleeannebennett@gmail.com> (https://www.amylee.co/)",
