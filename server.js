@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3000;
+const routes = require('./routes/');
 
 const MONGODB_HOST = process.env.MONGODB_HOST || 'localhost';
 const MONGODB_PORT = process.env.MONGODB_PORT || 27017;
@@ -25,7 +26,9 @@ const db = mongoose.connection;
 
 app.use(express.static(__dirname+'/client'));
 app.use(bodyParser.json());
+app.use(routes);
 
+app.set('view engine', 'jade');
 app.get('/', function(req, res){
   res.send('hello world');
 });
