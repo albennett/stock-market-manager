@@ -1,12 +1,18 @@
 'use strict';
-
+const Stock = require('../models/stock');
 module.exports.index = (req, res) => {
-  console.log("req", req);
-  console.log("res", res);
-  res.render('portfolio', {
-    sym: 'AAPL',
-    comp: 'Apple',
-    price: '$689.67',
-    qty: '5'
+
+  Stock.find().sort('-_id').exec((err, doc) => {
+    if (err) throw err;
+    console.log('doc', doc)
+    res.render('portfolio', {
+      symbol: doc[0].symbol,
+      name: doc[0].name,
+      price: doc[0].price,
+      quantity: doc[0].quantity
+    });
   });
-}
+
+
+};
+
