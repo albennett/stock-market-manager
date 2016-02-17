@@ -2,6 +2,13 @@ doctype html
 html
   head
     title= title
-    link(href="/client/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet")
+    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.min.css')
   body
+    //- nav.navbar.navbar-default.navbar-fixed-top
+    //-   li
+    //-     a(href='#/portfolio') Portfolio
+    //-   li
+    //-     a(href='#') Buy/Sell
+    //-   li
+    //-     a(href='#/quotes') Get Quote
     block content

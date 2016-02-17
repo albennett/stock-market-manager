@@ -3,9 +3,13 @@ const express = require('express');
 const router = express.Router();
 
 const getQuote = require("./getQuote")
-const quoteDetails = require("./quoteDetails")
+const details = require("./details")
+const portfolio = require('./portfolio')
+const buy = require('./buy')
 
 router.use(getQuote);
-router.use(quoteDetails);
+router.use(details);
+router.use(portfolio);
+router.use(buy);
 
 module.exports = router;

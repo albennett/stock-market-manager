@@ -1,6 +1,17 @@
 extends ./layout.jade
 
 block content
-  h1 Find your quote
-  input.form-control(placeholder="symbol")
-  button.btn.btn-primary submit
+  .container
+    h4 Find stock
+      div.form-group
+      form(method='POST', action='/quotes')
+        label
+        input(type='text', name='symbol', placeholder='Enter Symbol')
+        button(type='submit') Get Quote
+
+      if results
+        ul Click for more details:
+          each result, i in results
+            li.nostyle
+              a.decoration(href="/details/#{result.Symbol}") #{result.Symbol} #{result.Name}
+
