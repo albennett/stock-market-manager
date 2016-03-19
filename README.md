@@ -1,10 +1,10 @@
 # stock-market-manager
 
-A NSS individual project to go over MEAN Stack
+A NSS individual project to use the mongo database
 
 ##Goal
 
-Create a MEAN stack app that uses the stock api to look up and buy stocks.
+Create an app that uses the stock api to search and buy stocks.
 
 ##Technologies Used
 
